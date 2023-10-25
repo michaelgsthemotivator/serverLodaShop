@@ -1,4 +1,3 @@
-const bcryptjs = require("bcryptjs");
 const { Game, User, Transaction, History } = require("../models/");
 
 class Controller {
