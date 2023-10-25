@@ -1,4 +1,5 @@
-const { Game } = require("../models/");
+const { Game, Transaction } = require("../models/");
+const { Op } = require("sequelize");
 
 class Controller {
   static async getGameWithPaginationAndFilter(req, res, next) {
@@ -14,9 +15,6 @@ class Controller {
 
       const games = await Game.findAll({
         include: [
-          {
-            model: User,
-          },
           {
             model: Transaction,
           },

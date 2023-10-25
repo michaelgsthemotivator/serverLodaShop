@@ -3,7 +3,8 @@ const { Game, User, Transaction, History } = require("../models/");
 class Controller {
   static async postTransaction(req, res, next) {
     try {
-      const { title, price } = req.body;
+      console.log(req.user);
+      const { title, price, GameId } = req.body;
 
       const newTransaction = await Transaction.create({
         title,
@@ -11,11 +12,14 @@ class Controller {
         GameId,
       });
       const getTransactionId = await Transaction.findByPk(
-        newTransaction.GameId
+        newTransaction.GameId,
+        { include: [Game] }
       );
 
       await History.create({
-        description: `New Transaction with id ${newTransaction.id} on Game ${getTransactionId.name} is Created`,
+        description: `New Transaction with id ${newTransaction.id} on Game ${getTransactionId.Game.name} is Created`,
+        TransactionId: getTransactionId.id,
+        UserId: req.user.id,
       });
       res.status(201).json(newTransaction);
     } catch (error) {
@@ -26,7 +30,7 @@ class Controller {
   static async getTransaction(req, res, next) {
     try {
       const transactions = await Transaction.findAll({
-        include: [User, Game],
+        include: [Game],
       });
       res.status(200).json(transactions);
     } catch (error) {
@@ -38,7 +42,7 @@ class Controller {
     try {
       const { id } = req.params;
       const transaction = await Transaction.findByPk(id, {
-        include: [Game, User],
+        include: [Game],
       });
 
       if (transaction) {

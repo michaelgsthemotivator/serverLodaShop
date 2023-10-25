@@ -53,17 +53,6 @@ class UserControlller {
       next(err);
     }
   }
-
-  static async getUser(req, res, next) {
-    try {
-      const { id } = req.user;
-      const findUser = await User.findByPk(id);
-
-      res.status(200).json(findUser);
-    } catch (error) {
-      next(error);
-    }
-  }
 }
 
 module.exports = UserControlller;

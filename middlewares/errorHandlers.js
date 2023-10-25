@@ -1,6 +1,9 @@
+const { log } = require("console");
+
 function errorHandler(err, req, res, next) {
   let status = 500;
   let message = "Internal Server Error";
+  console.log(err, "halo");
   switch (err.name) {
     case "SequelizeValidationError":
       const error = err.errors[0].message;
