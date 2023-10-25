@@ -1,4 +1,4 @@
-const { Game, User, Transaction, History } = require("../models/");
+const { Game, Transaction, History } = require("../models/");
 
 class Controller {
   static async postTransaction(req, res, next) {

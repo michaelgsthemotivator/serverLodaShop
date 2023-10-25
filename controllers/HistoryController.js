@@ -12,6 +12,47 @@ class HistoryController {
       next(error);
     }
   }
+  static async postHistories(req, res, next) {
+    try {
+      await History.create({
+        description: `Thanks For Your Top Up on Transaction (transactionname) on Game (gamename)`,
+        TransactionId: getTransactionId.id,
+        UserId: req.user.id,
+      });
+      res.status(201).json(newTransaction);
+
+      res.status(200).json(histories);
+    } catch (error) {
+      next(error);
+    }
+  }
+  static async generateMidtransToken(req, res, next) {
+    try {
+      let snap = new midtransClient.Snap({
+        isProduction: false,
+        serverKey: process.env.MIDTRANS_SERVER_KEY,
+      });
+      let parameter = {
+        transaction_details: {
+          order_id: `TRANSACTION_${Math.floor(
+            1000000 + Math.random() * 900000
+          )}`,
+          gross_amount: 10000,
+        },
+        credit_card: {
+          secure: true,
+        },
+        customer_details: {
+          first_name: "budi",
+          last_name: "pratama",
+          email: "budi.pra@example.com",
+          phone: "08111222333",
+        },
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = HistoryController;

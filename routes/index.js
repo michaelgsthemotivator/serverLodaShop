@@ -6,6 +6,8 @@ const UserControlller = require("../controllers/UserController");
 const HistoryController = require("../controllers/HistoryController");
 const { authentication } = require("../middlewares/authentication");
 
+const midtransClient = require("midtrans-client");
+
 // REGISTER AND LOGIN
 router.post("/register", UserControlller.register);
 router.post("/login", UserControlller.login);
@@ -18,6 +20,10 @@ router.post("/transactions", TransactionController.postTransaction);
 router.get("/transactions/:id", TransactionController.getTransactionDetail);
 
 router.get("/histories", HistoryController.getHistories);
+
+//MIDTRANS
+router.post("/generateMidtransToken", HistoryController.generateMidtransToken);
+router.post("/histories", HistoryController.postHistories);
 
 // router.post("/qr-code", TransactionController.generateQrCode);
 
