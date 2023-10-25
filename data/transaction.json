@@ -1,0 +1,32 @@
+[
+    {
+        "title": "WelkinMoon 1 Bulan",
+        "price": 80000,
+        "GameId": 1,
+        "UserId": 1
+    },
+      {
+        "title": "999 Genesis Crystal",
+        "price": 144000,
+        "GameId": 1,
+        "UserId": 1
+    },
+    {
+        "title": "200 Diamond MLBB",
+        "price": 80000,
+        "GameId": 2,
+        "UserId": 1
+    },
+    {
+        "title": "4000 Diamond MLBB",
+        "price": 1200000,
+        "GameId": 2,
+        "UserId": 1
+    },
+     {
+        "title": "4000 Diamond",
+        "price": 1200000,
+        "GameId": 2,
+        "UserId": 1
+    }
+]
