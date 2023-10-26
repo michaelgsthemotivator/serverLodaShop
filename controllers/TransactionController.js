@@ -55,6 +55,7 @@ class Controller {
       next(error);
     }
   }
+  //a
 
   static async generateQrCode(req, res, next) {
     try {
