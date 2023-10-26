@@ -19,6 +19,7 @@ router.get("/transactions/:id", TransactionController.getTransactionDetail);
 router.get("/games/:id", GameController.getGameById);
 
 router.get("/histories", HistoryController.getHistories);
+router.get("/users", UserControlller.getUser);
 
 //MIDTRANS
 router.post("/generateMidtransToken", HistoryController.generateMidtransToken);
