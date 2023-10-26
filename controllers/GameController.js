@@ -29,6 +29,22 @@ class Controller {
       next(error);
     }
   }
+  static async getGameById(req, res, next) {
+    try {
+      const { id } = req.params;
+      const gameById = await Game.findByPk(id, {
+        include: [Transaction],
+      });
+
+      if (gameById) {
+        res.status(200).json(gameById);
+      } else {
+        throw { name: "not found" };
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = Controller;

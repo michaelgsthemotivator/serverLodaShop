@@ -1,4 +1,5 @@
 const { History } = require("../models/");
+const midtransClient = require("midtrans-client");
 
 class HistoryController {
   static async getHistories(req, res, next) {
@@ -14,13 +15,11 @@ class HistoryController {
   }
   static async postHistories(req, res, next) {
     try {
-      await History.create({
-        description: `Thanks For Your Top Up on Transaction (transactionname) on Game (gamename)`,
+      const histories = await History.create({
+        description: `Thanks For Your Top Up on Transaction (transactionname) on Game (gamename), for (price)`,
         TransactionId: getTransactionId.id,
         UserId: req.user.id,
       });
-      res.status(201).json(newTransaction);
-
       res.status(200).json(histories);
     } catch (error) {
       next(error);
@@ -49,6 +48,11 @@ class HistoryController {
           phone: "08111222333",
         },
       };
+      snap.createTransaction(parameter).then((transaction) => {
+        // transaction token
+        let transactionToken = transaction.token;
+        console.log("transactionToken:", transactionToken);
+      });
     } catch (error) {
       console.log(error);
     }
