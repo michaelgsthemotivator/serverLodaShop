@@ -1,0 +1,75 @@
+[
+    {
+        "title": "WelkinMoon 1 Bulan",
+        "price": 80000,
+        "GameId": 1
+    
+    },
+      {
+        "title": "999 Genesis Crystal",
+        "price": 144000,
+        "GameId": 1
+       
+    },
+    {
+        "title": "200 Diamond MLBB",
+        "price": 80000,
+        "GameId": 2
+        
+    },
+    {
+        "title": "4000 Diamond MLBB",
+        "price": 1200000,
+        "GameId": 2
+     
+    },
+     {
+        "title": "200 Diamond",
+        "price": 80000,
+        "GameId": 3
+    },
+     {
+        "title": "4000 Diamond",
+        "price": 1200000,
+        "GameId": 3
+    },{
+        "title": "200 Diamond",
+        "price": 80000,
+        "GameId": 4
+    },
+     {
+        "title": "4000 Diamond",
+        "price": 1200000,
+        "GameId": 4
+    },{
+        "title": "200 Diamond",
+        "price": 80000,
+        "GameId": 5
+    },
+     {
+        "title": "4000 Diamond",
+        "price": 1200000,
+        "GameId": 5
+    },{
+        "title": "200 Diamond",
+        "price": 80000,
+        "GameId": 6
+    },
+     {
+        "title": "4000 Diamond",
+        "price": 1200000,
+        "GameId": 6
+    },
+    {
+        "title": "200 Diamond",
+        "price": 80000,
+        "GameId": 7
+    },
+     {
+        "title": "4000 Diamond",
+        "price": 1200000,
+        "GameId": 7
+    }
+    
+    
+]
