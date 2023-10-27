@@ -7,10 +7,10 @@ class Controller {
       const page = req.query.page || 1;
       const limit = 5;
       const offset = (page - 1) * limit;
-      const { name } = req.query;
+      const { filter } = req.query;
       const where = {};
-      if (name) {
-        where.name = { [Op.like]: `%${name}%` };
+      if (filter) {
+        where.name = { [Op.iLike]: `%${filter}%` };
       }
 
       const games = await Game.findAll({

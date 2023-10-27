@@ -13,6 +13,7 @@ router.post("/login", UserControlller.login);
 // AUTHENTICATION
 router.use(authentication);
 
+router.post("/midtranstoken", HistoryController.generateMidtransToken);
 router.get("/transactions", TransactionController.getTransaction);
 router.post("/transactions", TransactionController.postTransaction);
 router.get("/transactions/:id", TransactionController.getTransactionDetail);
@@ -23,7 +24,8 @@ router.get("/users", UserControlller.getUser);
 
 //MIDTRANS
 router.post("/generateMidtransToken", HistoryController.generateMidtransToken);
-router.post("/histories", HistoryController.postHistories);
+router.post("/histories/:id", HistoryController.postHistories);
+//bukan
 
 //QR-CODE
 router.post("/qr-code", TransactionController.generateQrCode);
